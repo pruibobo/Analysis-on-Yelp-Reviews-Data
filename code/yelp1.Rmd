@@ -1,12 +1,12 @@
-# analysis-on-yelp-reviews
+---
+title: "Analysis on yelp reviews"
+author: "Huitong Kou, Zihang Wang, Peibin Rui"
+output: html_document
+---
 
-## Authors
-
-Huitong Kou
-
-Zihang Wang
-
-Peibin Rui
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 ## Goal
 
@@ -50,6 +50,7 @@ link
 The Rmd file is for knitting the summary file.
 
 All the data are stored in the `data` directory.
+
 
 
 
