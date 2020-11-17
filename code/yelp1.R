@@ -1,9 +1,9 @@
-library(tidytext); 
+library(tidytext)
 library(dplyr)
 library(data.table)
 
-word_frec=read.csv('word_freq.csv')
-data=fread('steak_cleaned.csv')
+word_frec=read.csv('../data/word_freq.csv')
+data=fread('../data/steak_cleaned.csv')
 
 #######################
 hist(data$stars_x[data$salad==1],breaks=c(0:5),freq = F,xlab = 'Stars',ylab = 'Freq',main = 'Salad')
