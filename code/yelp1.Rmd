@@ -23,7 +23,7 @@ To provide
 
 ## 2.Data Cleaning
 
-Limited by the computing power, we chose to foucus on some restaurant whose category contained the word "steak".
+Limited by the computing power, we chose to focus on restaurants whose category contained the word "steak".
 
 The `yelp.ipynb` in `code` folder is used to clean the data and create the word frequency table and the large word embedding table with original views.
 
