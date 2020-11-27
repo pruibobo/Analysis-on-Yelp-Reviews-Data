@@ -50,7 +50,11 @@ todo
 
 ### 3.3 Different Non-food Items
 
-todo
+todo list
+
+We would like to investigate non-food items which will influence the review stars.
+
+e.g.
 
 food, drink, wifi, parking, price...
 
