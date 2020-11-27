@@ -2,11 +2,11 @@
 
 ## Authors
 
-Huitong Kou
+Huitong Kou hkou2@wisc.edu
 
-Zihang Wang
+Zihang Wang zwang2547@wisc.edu
 
-Peibin Rui
+Peibin Rui prui@wisc.edu
 
 ## Goal
 
