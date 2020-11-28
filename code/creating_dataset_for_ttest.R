@@ -35,3 +35,122 @@ data2=data1 %>%
 colnames(data2)=c('restaurant','stars','attribute','level','category')
 
 write.csv(data2,'attributes_data_for_ttest.csv')
+
+
+####check overall steak stars
+rm(list = ls())
+library(dplyr)
+
+data=read.csv('../data/attributes_data_for_ttest.csv')
+data2=data %>% 
+  group_by(restaurant,stars) %>% 
+  summarise(n=n()) %>% 
+  select(restaurant,stars)
+
+hist(data2$stars,main = 'Steak restaurant stars histgram',breaks=c(0:5),freq = F,xaxt = "n",xlab = 'Stars',ylab = 'Freq',ylim = c(0,0.6))
+
+####conduct t-test
+p=c()
+
+##RestaurantsReservations
+data3=data %>% 
+  filter(attribute=='RestaurantsReservations') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, level == "True")
+f <- subset(data3, level == "False")
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = FALSE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = FALSE,alternative = 'greater')$p.value)
+#significant
+
+##NoiseLevel
+data3=data %>% 
+  filter(attribute=='NoiseLevel') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('quiet',level))
+f <- subset(data3, !grepl('quiet',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#not significant
+
+
+##RestaurantsAttire
+data3=data %>% 
+  filter(attribute=='RestaurantsAttire') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, !grepl('casual',level))
+f <- subset(data3, grepl('casual',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#significant 
+
+##WiFi
+data3=data %>% 
+  filter(attribute=='WiFi') #%>% 
+#  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('free',level))
+f <- subset(data3, !grepl('free',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#not significant
+
+##OutdoorSeating
+data3=data %>% 
+  filter(attribute=='OutdoorSeating') #%>% 
+  #  filter(!level=='None')
+  
+table(data3$level)
+
+t <- subset(data3, grepl('True',level))
+f <- subset(data3, !grepl('True',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#significant
+
+
+##RestaurantsDelivery
+data3=data %>% 
+  filter(attribute=='RestaurantsDelivery') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('True',level))
+f <- subset(data3, !grepl('True',level))
+var.test(t$stars, f$stars)
+t.test(f$stars, t$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(f$stars, t$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+# significant
+
+##RestaurantsGoodForGroups
+data3=data %>% 
+  filter(attribute=='RestaurantsGoodForGroups') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('True',level))
+f <- subset(data3, !grepl('True',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(f$stars, t$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#not significant
+p=format(p, scientific = FALSE)
+attribute=c("RestaurantsReservations","NoiseLevel","RestaurantsAttire","WiFi","OutdoorSeating","RestaurantsDelivery","RestaurantsGoodForGroups")
+pvalue_ttest=data.frame(attribute,p.value=p)

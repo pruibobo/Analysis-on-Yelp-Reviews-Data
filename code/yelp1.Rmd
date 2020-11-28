@@ -69,6 +69,144 @@ statistical test?
 
 ...
 
+### 3.4 Statistical Analysis
+
+It's noticeable that the `business_city.json` contains many attributes of each restaurant. We decided to conduct t-test on some of the attributes to see whether different levels of some attributes can make a statistically significant difference on a restaurant's stars.
+
+Firstly, let's check the overall star distributions of all steak restaurants.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,fig.height=3.5,out.width='75%',fig.align='center'}
+####check overall steak stars
+rm(list = ls())
+library(dplyr)
+
+data=read.csv('../data/attributes_data_for_ttest.csv')
+data2=data %>% 
+  group_by(restaurant,stars) %>% 
+  summarise(n=n()) %>% 
+  select(restaurant,stars)
+
+hist(data2$stars,main = 'Steak Restaurant Stars Histgram',breaks=c(0:5),freq = F,xaxt = "n",xlab = 'Stars',ylab = 'Freq',ylim = c(0,0.6))
+```
+
+There are 7 attributes selected and the p-value of each t-test is as below.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+####conduct t-test
+p=c()
+
+##RestaurantsReservations
+data3=data %>% 
+  filter(attribute=='RestaurantsReservations') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, level == "True")
+f <- subset(data3, level == "False")
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = FALSE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = FALSE,alternative = 'greater')$p.value)
+#significant
+
+##NoiseLevel
+data3=data %>% 
+  filter(attribute=='NoiseLevel') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('quiet',level))
+f <- subset(data3, !grepl('quiet',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#not significant
+
+
+##RestaurantsAttire
+data3=data %>% 
+  filter(attribute=='RestaurantsAttire') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, !grepl('casual',level))
+f <- subset(data3, grepl('casual',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#significant 
+
+##WiFi
+data3=data %>% 
+  filter(attribute=='WiFi') #%>% 
+#  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('free',level))
+f <- subset(data3, !grepl('free',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#not significant
+
+##OutdoorSeating
+data3=data %>% 
+  filter(attribute=='OutdoorSeating') #%>% 
+  #  filter(!level=='None')
+  
+table(data3$level)
+
+t <- subset(data3, grepl('True',level))
+f <- subset(data3, !grepl('True',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#significant
+
+
+##RestaurantsDelivery
+data3=data %>% 
+  filter(attribute=='RestaurantsDelivery') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('True',level))
+f <- subset(data3, !grepl('True',level))
+var.test(t$stars, f$stars)
+t.test(f$stars, t$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(f$stars, t$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+# significant
+
+##RestaurantsGoodForGroups
+data3=data %>% 
+  filter(attribute=='RestaurantsGoodForGroups') %>% 
+  filter(!level=='None')
+
+table(data3$level)
+
+t <- subset(data3, grepl('True',level))
+f <- subset(data3, !grepl('True',level))
+var.test(t$stars, f$stars)
+t.test(t$stars, f$stars, var.equal = TRUE,alternative = 'greater')
+p=c(p,t.test(f$stars, t$stars, var.equal = TRUE,alternative = 'greater')$p.value)
+#not significant
+p=format(p, scientific = FALSE)
+attribute=c("RestaurantsReservations","NoiseLevel","RestaurantsAttire","WiFi","OutdoorSeating","RestaurantsDelivery","RestaurantsGoodForGroups")
+pvalue_ttest=data.frame(attribute,p.value=p)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+#pvalue_ttest
+kable(pvalue_ttest, format = "markdown")
+```
+With significance level of 0.05, the `RestaurantsReservations(True)` , `RestaurantsAttire(Dressy)`, `OutdoorSeating(True)` and `RestaurantsDelivery(False)` can statistically leads to significant higher stars. The `NoiseLevel(Quiet)`, `WiFi(Free)`, `RestaurantsGoodForGroups(True)` didn't statistically matter.
+
+
 ## 4.Actionable plan
 
 ### 4.1 Advice on opening a new steak restaurant
@@ -87,6 +225,13 @@ In the aspect of other foods:
 
 In the aspect of non-food items:
 
+- Set up a proper reservation system is important.
+- Offer well-designed attire to your waiters/waitresses.
+- Look for possible locations with outdoor seating.
+- Don't provide food delivery service.
+- Avoid investing in WiFi or soundproof materials at the beginning.
+- Allocating too much spaces for groups specially is unnecessary.
+
 ### 4.2 Advice on improving an existed steak restaurant
 
 In the aspect of steaks:
@@ -98,6 +243,12 @@ In the aspect of steaks:
 In the aspect of other foods:
 
 In the aspect of non-food items:
+
+- Improve or set up  your reservation system.
+- Pay attention to the attire of your waiters/waitresses.
+- Check if it's possible to offer outdoor seating.
+- Don't provide food delivery service.
+- Allocating too much spaces for groups specially is unnecessary.
 
 ## 5.Shiny App
 
