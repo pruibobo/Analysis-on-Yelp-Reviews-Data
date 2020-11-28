@@ -22,6 +22,16 @@ for(i in 1:length(wordList)){
   ind=which(col_wordnet==wordList[i])
   print(paste(wordList[i],ind))
   hist(data$stars_x[data[,..ind]==1],breaks=c(0:5),freq = F,xaxt = "n",xlab = 'Stars',ylab = 'Freq',main = wordList[i],ylim = c(0,0.6))
-  
 }
 
+
+
+#####################################
+# star distribution on different cities
+
+table(data$city)
+star_madison=data$stars_x[which(data$city=="Madison")]
+boxplot(star_madison)
+hist(star_madison,freq = T)
+b=table(star_madison)
+barplot(b)
