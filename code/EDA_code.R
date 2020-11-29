@@ -45,25 +45,27 @@ steak_list=tolower(steak_list)
 plotWordStar(data$stars_x,data,steak_list,c(3,4))
 
 # Different Types of other food
-sidefood_list=c("salad","drink","cheese","potato",
+sidefood_list=c("salad","egg","cheese","potato",
                 "chicken","sushi","burger","bread",
                 "dessert","shrimp","wine","beer",
                 "sandwich","lobster","cake","salmon")
 plotWordStar(data$stars_x,data,sidefood_list)
 
-
-#####################################
-# star distribution on different cities
-
-table(data$city)
-star_madison=data$stars_x[which(data$city=="Madison")]
-boxplot(star_madison)
-hist(star_madison,freq = T)
-b=table(star_madison)
-barplot(b)
+# Influence of Non-food Items
+non_food_list=c("service","time","dinner","menu",
+                "price","wait","staff","friendly",
+                "friend","atmosphere","recommend","location",
+                "party","birthday","parking","reservation")
+plotWordStar(data$stars_x,data,non_food_list)
 
 
+# test
 
+mylist2=c("time","back","dinner","night",
+          "lunch","husband","wife","family",
+          "evening","madison","brunch","rice",
+          "sunday","boyfriend","girlfriend","ambiance")
+plotWordStar(data$stars_x,data,mylist2)
 
 
 
