@@ -5,6 +5,7 @@
 library(tidyverse)
 library(dplyr)
 library(data.table)
+library(wordcloud2)
 
 data=fread('../data/steak_cleaned.csv')
 
@@ -27,6 +28,7 @@ plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
     }
     barplot(starsY,main=wordList[i],xlab="Stars (1 -> 5)",ylab="Word Freq")
   }
+  par(mfrow = c(1,1))
 }
 
 covariates=names(data)
@@ -66,6 +68,22 @@ mylist2=c("time","back","dinner","night",
           "evening","madison","brunch","rice",
           "sunday","boyfriend","girlfriend","ambiance")
 plotWordStar(data$stars_x,data,mylist2)
+
+
+boxplot(data$stars_x[which(data$city=="Akron")],data$stars_x[which(data$city=="Champaign")],
+        data$stars_x[which(data$city=="Cleveland")],data$stars_x[which(data$city=="Madison")])
+
+summary(data$stars_x[which(data$city=="Akron")])
+summary(data$stars_x[which(data$city=="Champaign")])
+summary(data$stars_x[which(data$city=="Cleveland")])
+summary(data$stars_x[which(data$city=="Madison")])
+
+# # word cloud plot
+# mytext=data$text
+# a=table(mytext)
+# 
+# wordcloud2(a,shape = "star")
+
 
 
 
