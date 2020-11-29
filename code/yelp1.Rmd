@@ -42,7 +42,13 @@ However, customers seem to be more picky on sirloin, round and cube steak accord
 
 ### 3.2 Different Types of other food
 
-todo
+```{r echo=FALSE, out.width='85%'}
+knitr::include_graphics("../image/side_food.png")
+```
+
+We found that egg, cheese, burger, shrimp are more frequently mentioned as the star goes up, especially from 1-star to 4-star. 
+
+As for dessert and drink, cake is one of the desserts that customers may pay more attention to or have higher expectation and people tend to make more comments on wine and beer as the quality of restaurant increases.
 
 ### 3.3 Different Non-food Items
 
@@ -219,6 +225,11 @@ In the aspect of steaks:
 
 In the aspect of other foods:
 
+- Set a more varied range of wines and beers offered at your restaurant
+- Make sure the egg and cheese served at your restaurant taste great
+- Consider hiring patissiers and serve desserts 
+- Salad is important
+
 In the aspect of non-food items:
 
 - Set up a proper reservation system is important.
@@ -237,6 +248,10 @@ In the aspect of steaks:
 - Advertise your sirloin, round and cube steaks if one of them has brought your restaurant high-star comments. It is very praiseworthy to have highly rated sirloin, round and cube steaks.
 
 In the aspect of other foods:
+
+- Improve the quality of wines and beers 
+- Cheese and salad are always focus points
+- Start serving desserts may help
 
 In the aspect of non-food items:
 
