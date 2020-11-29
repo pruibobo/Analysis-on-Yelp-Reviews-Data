@@ -22,7 +22,7 @@ par(mfrow=c(2,6))
 for(i in 1:length(wordList)){
   ind=which(col_wordnet==wordList[i])
   print(paste(wordList[i],ind))
-  hist(data$stars_x[data[,..ind]==1],breaks=c(0:5),freq = F,xaxt = "n",xlab = 'Stars',ylab = 'Freq',main = wordList[i],ylim = c(0,0.6))
+  hist(data$stars_x[data[,..ind]>0],breaks=c(0:5),freq = F,xaxt = "n",xlab = 'Stars',ylab = 'Freq',main = wordList[i],ylim = c(0,0.6))
 }
 
 

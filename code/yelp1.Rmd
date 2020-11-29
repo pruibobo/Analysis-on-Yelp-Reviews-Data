@@ -33,7 +33,7 @@ After filtering and combination, the `steak_cleaned.csv` has 33629 rows × 6085 
 Firstly, let's check the common types of steaks and how their ratings distribute. These steaks are also the ones that appear many times in the comments.
 
 ```{r echo=FALSE, out.width='85%'}
-knitr::include_graphics("../image/steak_type.jpg")
+knitr::include_graphics("../image/steak_type.png")
 ```
 
 We found that tomahawk, skirt, hanger and flank steaks tends to obtain 5-star comments more easily. The portion of their 5-star comments is significantly over 45%.
