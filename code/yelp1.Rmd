@@ -1,11 +1,13 @@
 ---
 title: "Analysis on yelp reviews"
 author: "Huitong Kou, Zihang Wang, Peibin Rui"
-output:
-  pdf_document: default
-  html_document: 
-    fig_width: 10
-    fig_height: 8
+output: 
+  pdf_document:
+    latex_engine: xelatex
+mainfont: Times New Roman
+fontsize: 12pt
+geometry: margin=1in 
+spacing: single
 ---
 
 ```{r setup, include=FALSE}
@@ -14,12 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 1.Goal
 
-To provide
-
-- Data-driven actionable plan to help business owners improve their ratings on Yelp. 
-
-- Key useful, analytical insights from the data (e.g. plots, tables, models, inferential methods, etc.) .
-- A demonstration of your Shiny application.
+We would like to study the relationship of ratings, reviews and words in order to provide advice for opening a new steak restaurant and improving an existed steak restaurant from foods, non-food items by some histgrams and t-tests.  
 
 ## 2.Data Cleaning
 
@@ -35,10 +32,9 @@ After filtering and combination, the `steak_cleaned.csv` has 33629 rows × 6085 
 
 Firstly, let's check the common types of steaks and how their ratings distribute. These steaks are also the ones that appear many times in the comments.
 
-```{r echo=FALSE, out.width='95%'}
+```{r echo=FALSE, out.width='85%'}
 knitr::include_graphics("../image/steak_type.jpg")
 ```
-
 
 We found that tomahawk, skirt, hanger and flank steaks tends to obtain 5-star comments more easily. The portion of their 5-star comments is significantly over 45%.
 
@@ -254,8 +250,13 @@ In the aspect of non-food items:
 
 link
 
+## 6.Contribution
 
+HK contributed to the coding and writing of summary outline and the food and t-test part.
 
+ZW contributed to the coding and writing of non-food part and the slides of presentation. 
+
+PR contributed to the coding and writing of the shiny app and the slides of presentation.
 
 
 
