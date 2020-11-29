@@ -11,6 +11,7 @@ hist(data$stars_x[data$salad==1],breaks=c(0:5),freq = F,xlab = 'Stars',ylab = 'F
 
 steak_list=c('Filet','Ribeye','Strip','Sirloin','Porterhouse','Tomahawk','Skirt','Flank','hanger','round','cube')
 steak_list=tolower(steak_list)
+#steak_list=c("good","bad")
 
 word_frec %>% 
   filter(word %in% steak_list)
@@ -25,13 +26,3 @@ for(i in 1:length(wordList)){
 }
 
 
-
-#####################################
-# star distribution on different cities
-
-table(data$city)
-star_madison=data$stars_x[which(data$city=="Madison")]
-boxplot(star_madison)
-hist(star_madison,freq = T)
-b=table(star_madison)
-barplot(b)

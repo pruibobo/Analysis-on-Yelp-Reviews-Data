@@ -1,35 +1,47 @@
-library(tidytext)
+
+# We would like to perform some Exploratory data analysis first
+
+#######################################################
+library(tidyverse)
 library(dplyr)
 library(data.table)
 
 data=fread('../data/steak_cleaned.csv')
 
-# plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
-#   par(mfrow = mfrow)
-#   col_DTM = colnames(DTM)
-#   for(i in 1:length(wordList)) {
-#     index = which(col_DTM == wordList[i])
-#     if(length(index) == 0) {
-#       warning(paste(wordList[i],"not detected"))
-#       next
-#     } 
-#     dtm_vec = as.numeric(DTM[,index])
-#     names(dtm_vec) = rownames(DTM)
-#     starsY = rep(0,5)
-#     for(j in 1:5) {
-#       # I've changed this code to scale by total number of stars. This
-#       # I think provides better resolution than before.
-#       element = dtm_vec[as.character(stars$uniqueID[which(stars$stars == j)])]
-#       starsY[j]  = sum(element > 0,na.rm=TRUE) / sum(stars$stars == j)
-#     }
-#     barplot(starsY,main=wordList[i],xlab="Stars",ylab="Word Freq")
-#   }  
-# }
-# Y = data %>% select(uniqueID,stars);
+plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
+  par(mfrow = mfrow)
+  col_DTM = colnames(DTM)
+  DTM=as.data.frame(DTM)
+  for(i in 1:length(wordList)) {
+    index = which(col_DTM == wordList[i])
+    if(length(index) == 0) {
+      warning(paste(wordList[i],"not detected"))
+      next
+    }
+    dtm_vec = DTM[,index]
+    starsY = rep(0,5)
+    for(j in 1:5) {
+      element = dtm_vec[which(stars==j)]
+      element = na.omit(element)
+      starsY[j]  = sum(element > 0,na.rm=TRUE)/length(element)
+    }
+    barplot(starsY,main=wordList[i],xlab="Stars (1 -> 5)",ylab="Word Freq")
+  }
+}
 
+# sanity check
+mylist=c("bad","worst","awful",
+         "mediocre","average","ordinary",
+         "fantastic","excellent","wonderful")
+plotWordStar(data$stars_x,data,mylist,c(3,3))
 
+covariates=names(data)
 
-
+steak_list=c('Filet','Ribeye','Strip','Sirloin',
+             'Porterhouse','Tomahawk','Skirt','Flank',
+             'hanger','round','cube')
+steak_list=tolower(steak_list)
+plotWordStar(data$stars_x,data,steak_list,c(3,4))
 
 
 
