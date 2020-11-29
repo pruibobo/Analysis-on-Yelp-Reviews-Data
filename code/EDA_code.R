@@ -29,22 +29,27 @@ plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
   }
 }
 
+covariates=names(data)
+
 # sanity check
 mylist=c("bad","worst","awful",
          "mediocre","average","ordinary",
          "fantastic","excellent","wonderful")
 plotWordStar(data$stars_x,data,mylist,c(3,3))
 
-covariates=names(data)
-
+# Different Types of Steak
 steak_list=c('Filet','Ribeye','Strip','Sirloin',
              'Porterhouse','Tomahawk','Skirt','Flank',
              'hanger','round','cube')
 steak_list=tolower(steak_list)
 plotWordStar(data$stars_x,data,steak_list,c(3,4))
 
-
-
+# Different Types of other food
+sidefood_list=c("salad","drink","cheese","potato",
+                "chicken","sushi","burger","bread",
+                "dessert","shrimp","wine","beer",
+                "sandwich","lobster","cake","salmon")
+plotWordStar(data$stars_x,data,sidefood_list)
 
 
 #####################################
