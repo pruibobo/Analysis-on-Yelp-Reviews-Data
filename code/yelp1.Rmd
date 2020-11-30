@@ -190,7 +190,6 @@ kable(pvalue_ttest, format = "markdown")
 ```
 With significance level of 0.05, the `RestaurantsReservations(True)` , `RestaurantsAttire(Dressy)`, `OutdoorSeating(True)` and `RestaurantsDelivery(False)` can statistically leads to significant higher stars. The `NoiseLevel(Quiet)`, `WiFi(Free)`, `RestaurantsGoodForGroups(True)` didn't statistically matter.
 
-
 ## 4.Actionable plan
 
 ### 4.1 Advice on opening a new steak restaurant
@@ -198,12 +197,8 @@ With significance level of 0.05, the `RestaurantsReservations(True)` , `Restaura
 In the aspect of steaks:
 
 - Focus on tomahawk, skirt, hanger and flank steaks at first and emphasize them on your menu.
-
 - Filet, ribeye, strip and porterhouse steaks are not bad to consider.
-
 - Make sirloin, round and cube steaks inconspicuous on your menu or avoid offering them. 
-
-
 
 In the aspect of other foods:
 
@@ -226,7 +221,6 @@ In the aspect of non-food items:
 In the aspect of steaks:
 
 - Try to improve tomahawk, skirt, hanger and flank steaks if one of them has brought your restaurant many low-star comments since the customers are not so picky about them.
-
 - Advertise your sirloin, round and cube steaks if one of them has brought your restaurant high-star comments. It is very praiseworthy to have highly rated sirloin, round and cube steaks.
 
 In the aspect of other foods:
