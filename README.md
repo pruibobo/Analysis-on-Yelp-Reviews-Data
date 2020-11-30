@@ -20,7 +20,7 @@ Limited by the computing power, we chose to focus on restaurants whose category 
 
 ## Shiny App
 
-link
+https://pruibobo.shinyapps.io/shiny/
 
 ## Code Directions
 
