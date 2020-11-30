@@ -7,12 +7,7 @@ library(tidytext)
 library(dplyr)
 library(data.table)
 
-word_frec=read.csv('../data/word_freq.csv')
-colnames(word_frec)=c('word','freq')
-data=fread('../data/steak_cleaned.csv')
 choice<-c('filet','ribeye','strip','sirloin','porterhouse','tomahawk','skirt','flank','hanger','round','cube')
-
-
 ui = fluidPage(theme = shinytheme("yeti"),
   shinyUI(
   navbarPage("Steak House Review",
@@ -77,7 +72,7 @@ comments. It is very praiseworthy to have highly rated sirloin, round and cube s
 )
 server = function(input, output){
   output$Starsplot <- renderImage({
-    filename <- normalizePath(file.path('../image',
+    filename <- normalizePath(file.path('plots/',
                                         paste(input$type, '.png', sep='')))
     list(src = filename)
   })

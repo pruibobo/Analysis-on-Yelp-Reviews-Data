@@ -4,9 +4,9 @@ username:
 account: pruibobo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 3320929
-bundleId: 3920583
+appId: 3324853
+bundleId: 3923667
 url: https://pruibobo.shinyapps.io/shiny/
-when: 1606694442.29387
+when: 1606755500.16212
 asMultiple: FALSE
 asStatic: FALSE
