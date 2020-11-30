@@ -34,6 +34,8 @@ All codes are stored in the `code` directory.
 
 All the data are stored in the `data` directory.
 
+All the plots and codes used to build shiny app are stored in the `shiny` directory.
+
 
 
 
