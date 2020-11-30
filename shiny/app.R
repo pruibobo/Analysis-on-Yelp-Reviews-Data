@@ -76,24 +76,10 @@ comments. It is very praiseworthy to have highly rated sirloin, round and cube s
 )
 )
 server = function(input, output){
-  output$Starsplot <- renderPlot({
-    
-    steak_list=c('Filet','Ribeye','Strip','Sirloin','Porterhouse','Tomahawk','Skirt','Flank','hanger','round','cube')
-    steak_list=tolower(steak_list)
-    choice_list=tolower(choice)
-    wordList=steak_list
-    col_wordnet = colnames(data)
-    
-      ind=which(col_wordnet==input$choice)
-      hist(data$stars_x[data[,..ind]==1],
-           breaks=c(0:5),
-           freq = F,
-           xaxt = "n",
-           xlab = 'Stars',
-           ylab = 'Freq',
-           main = input$choice,
-           ylim = c(0,0.6))
-    
+  output$Starsplot <- renderImage({
+    filename <- normalizePath(file.path('../image',
+                                        paste(input$type, '.png', sep='')))
+    list(src = filename)
   })
 }
 
