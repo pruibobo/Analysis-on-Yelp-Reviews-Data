@@ -20,7 +20,7 @@ We would like to study the relationship of ratings, reviews and words in order t
 
 ## 2.Data Cleaning
 
-Limited by the computing power, we chose to focus on restaurants whose category contained the word "steak".
+Limited by the computing power, we chose to focus on restaurants whose category contained the word "steak". Then we used some tools in `nltk` to split, clean and recreate the reviews. 
 
 The `yelp.ipynb` in `code` folder is used to clean the data and create the word frequency table and the large word embedding table with original views.
 
@@ -32,8 +32,11 @@ After filtering and combination, the `steak_cleaned.csv` has 33629 rows × 6085 
 
 Firstly, let's check the common types of steaks and how their ratings distribute. These steaks are also the ones that appear many times in the comments.
 
-```{r echo=FALSE, out.width='85%'}
-knitr::include_graphics("../image/steak_type.png")
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics("../image/steak_type1.png")
+```
+```{r echo=FALSE, out.width='80%'}
+knitr::include_graphics("../image/steak_type2.png")
 ```
 
 We found that tomahawk, skirt, hanger and flank steaks tends to obtain 5-star comments more easily. The portion of their 5-star comments is significantly over 45%.
@@ -50,34 +53,13 @@ We found that egg, cheese, burger, shrimp are more frequently mentioned as the s
 
 As for dessert and drink, cake is one of the desserts that customers may pay more attention to or have higher expectation and people tend to make more comments on wine and beer as the quality of restaurant increases.
 
-### 3.3 Different Non-food Items
-
-todo list
-
-We would like to investigate non-food items which will influence the review stars.
-
-e.g.
-
-food, drink, wifi, parking, price...
-
-####################
-words distribution in reviews of different stars
-
-focus on certain district like Madison
-
-compare great and awful restaurant from words of food type,  etc
-
-statistical test?
-
-...
-
-### 3.4 Statistical Analysis
+### 3.3 Statistical Analysis on Business Atrributes
 
 It's noticeable that the `business_city.json` contains many attributes of each restaurant. We decided to conduct t-test on some of the attributes to see whether different levels of some attributes can make a statistically significant difference on a restaurant's stars.
 
 Firstly, let's check the overall star distributions of all steak restaurants.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE,fig.height=3.5,out.width='75%',fig.align='center'}
+```{r echo=FALSE, message=FALSE, warning=FALSE,out.width='50%',fig.align='center'}
 ####check overall steak stars
 rm(list = ls())
 library(dplyr)
