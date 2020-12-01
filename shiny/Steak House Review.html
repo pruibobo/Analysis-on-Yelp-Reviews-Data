@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://pruibobo.shinyapps.io/shiny/ -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="_w_f0fb9747/">--><base href=".">
+    <script type="text/javascript">
+(function() {
+  var workerId = '_w_f0fb9747';
+  // remove base href if worker ID is in url
+  if (window.location.href.indexOf(workerId) > 0) {
+    document.querySelector('base').removeAttribute('href');
+  }
+})();
+</script>
+
+      <script type="text/javascript">
+      var __connect = {
+        shinyPre101: false
+      }
+      </script>
+      
+  
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[3.5.1];shiny[1.5.0];selectize[0.11.2];bootstrap[3.4.1]</script>
+<script src="./Steak House Review_files/json2-min.js.download"></script>
+<script src="./Steak House Review_files/jquery.min.js.download"></script>
+<link href="./Steak House Review_files/shiny.css" rel="stylesheet">
+<script src="./Steak House Review_files/shiny.min.js.download"></script>
+<link href="./Steak House Review_files/selectize.bootstrap3.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="shared/selectize/js/es5-shim.min.js"></script>
+<![endif]-->
+<script src="./Steak House Review_files/selectize.min.js.download"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./Steak House Review_files/bootstrap.min.css" rel="stylesheet">
+<script src="./Steak House Review_files/bootstrap.min.js.download"></script>
+<script src="./Steak House Review_files/html5shiv.min.js.download"></script>
+<script src="./Steak House Review_files/respond.min.js.download"></script>  <link rel="stylesheet" type="text/css" href="./Steak House Review_files/yeti.min.css">
+  <title>Steak House Review</title>
+<script src="./Steak House Review_files/sockjs-0.3.min.js.download"></script>
+<script src="./Steak House Review_files/shiny-server-client.min.js.download"></script>
+<script>preShinyInit({reconnect:true,reconnectTimeout:15000,disableProtocols:["xdr-streaming","xdr-polling","websocket"],transportDebugging:false,token:true,workerId:true,subappTag:true,extendSession:true,fixupInternalLinks:true});</script>
+<link rel="stylesheet" type="text/css" href="./Steak House Review_files/rstudio-connect.css">
+<link rel="stylesheet" type="text/css" href="./Steak House Review_files/shinyapps.css"></head>
+<body data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="" class="">
+<script type="text/javascript" src="./Steak House Review_files/iframeResizer.contentWindow.min.js.download"></script>
+<script type="text/javascript" src="./Steak House Review_files/shinyapps.frame.content.js.download"></script>
+<script type="text/javascript" src="./Steak House Review_files/shinyapps.js.download"></script>
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="navbar-brand">Steak House Review</span>
+        </div>
+        <ul class="nav navbar-nav" data-tabsetid="1425">
+          <li class="active">
+            <a href="https://pruibobo.shinyapps.io/shiny/_w_f0fb9747/#tab-1425-1" data-toggle="tab" data-value="Reviews of differernt cuts of steak">Reviews of differernt cuts of steak</a>
+          </li>
+          <li>
+            <a href="https://pruibobo.shinyapps.io/shiny/_w_f0fb9747/#tab-1425-2" data-toggle="tab" data-value="Does time matter?">Does time matter?</a>
+          </li>
+          <li>
+            <a href="https://pruibobo.shinyapps.io/shiny/_w_f0fb9747/#tab-1425-3" data-toggle="tab" data-value="What about other food">What about other food</a>
+          </li>
+          <li>
+            <a href="https://pruibobo.shinyapps.io/shiny/_w_f0fb9747/#tab-1425-4" data-toggle="tab" data-value="Advice">Advice</a>
+          </li>
+          <li>
+            <a href="https://pruibobo.shinyapps.io/shiny/_w_f0fb9747/#tab-1425-5" data-toggle="tab" data-value="About">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="tab-content" data-tabsetid="1425">
+        <div class="tab-pane active" data-value="Reviews of differernt cuts of steak" id="tab-1425-1">
+          <div class="row">
+            <div class="col-sm-4">
+              <form class="well">
+                <span class="help-block">Please select the cut of steak served at your restaurant to see the plot</span>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" for="type-selectized">Type:</label>
+                  <div>
+                    <select id="type" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="filet" selected="selected">filet</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div class="item" data-value="filet">filet</div><input type="text" autocomplete="off" tabindex="" id="type-selectized" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                    <script type="application/json" data-for="type" data-nonempty="">{}</script>
+                  </div>
+                </div>
+                <span class="help-block">
+                  Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)
+                  Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp.
+                </span>
+                <span class="help-block">'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association</span>
+              </form>
+            </div>
+            <div class="col-sm-8">
+              <h5>Here is the plot of review stars of certain cut of steak</h5>
+              <div id="Starsplot" class="shiny-plot-output shiny-bound-output" style="width: 100% ; height: 400px"><img src="data:image/png;base64,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"></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" data-value="Does time matter?" id="tab-1425-2">
+          <div class="row">
+            <div class="col-sm-4">
+              <form class="well">
+                <span class="help-block">Please select the time of the day</span>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" for="time-selectized">Time:</label>
+                  <div>
+                    <select id="time" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="breakfast" selected="selected">breakfast</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div class="item" data-value="breakfast">breakfast</div><input type="text" autocomplete="off" tabindex="" id="time-selectized" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                    <script type="application/json" data-for="time" data-nonempty="">{}</script>
+                  </div>
+                </div>
+                <span class="help-block">
+                  Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)
+                  Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp.
+                </span>
+                <span class="help-block">'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association</span>
+              </form>
+            </div>
+            <div class="col-sm-8">
+              <h5>Here is the plot of different time of the day</h5>
+              <div id="timeplot" class="shiny-plot-output shiny-bound-output" style="width: 100% ; height: 400px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" data-value="What about other food" id="tab-1425-3">
+          <div class="row">
+            <div class="col-sm-4">
+              <form class="well">
+                <span class="help-block">Please select the type of other food</span>
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" for="foods-selectized">Type of food:</label>
+                  <div>
+                    <select id="foods" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="bread" selected="selected">bread</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div class="item" data-value="bread">bread</div><input type="text" autocomplete="off" tabindex="" id="foods-selectized" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                    <script type="application/json" data-for="foods" data-nonempty="">{}</script>
+                  </div>
+                </div>
+                <span class="help-block">
+                  Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)
+                  Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp.
+                </span>
+                <span class="help-block">'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association</span>
+              </form>
+            </div>
+            <div class="col-sm-8">
+              <h5>Here is the plot of how other food related to the reivews</h5>
+              <div id="otherfoodplot" class="shiny-plot-output shiny-bound-output" style="width: 100% ; height: 400px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" data-value="Advice" id="tab-1425-4">
+          <h3>Advice on opening a new steak restaurant:</h3>
+          <h4>In the aspect of steaks:</h4>
+          <p>1.Focus on tomahawk, skirt, hanger and flank steaks at first and emphasize them on your menu</p>
+          <p>2.Filet, ribeye, strip and porterhouse steaks are not bad to consider</p>
+          <p>3.Make sirloin, round and cube steaks inconspicuous on your menu or avoid offering them</p>
+          <h4>For food other than steaks:</h4>
+          <p>1.Set a more varied range of wines and beers offered at your restaurant</p>
+          <p>2.Make sure the egg and cheese served at your restaurant taste great</p>
+          <p>3.Consider hiring patissiers and serve desserts</p>
+          <p>4.Salad is important</p>
+          <h4>In the aspect of non-food items:</h4>
+          <p>1.Set up a proper reservation system is important</p>
+          <p>2.Offer well-designed attire to your waiters/waitresses</p>
+          <p>3.Look for possible locations with outdoor seating</p>
+          <p>4.Don’t provide food delivery service</p>
+          <p>5.Avoid investing in WiFi or soundproof materials at the beginning</p>
+          <p>6.Allocating too much spaces for groups specially is unnecessary</p>
+          <br>
+          <br>
+          <h3>Advice on improving an existed steak restaurant:</h3>
+          <h4>In the aspect of steaks:</h4>
+          <p>1.Try to improve tomahawk, skirt, hanger and flank steaks if one of them has brought your restaurant
+many low-star comments since the customers are not so picky about them</p>
+          <p>2.Advertise your sirloin, round and cube steaks if one of them has brought your restaurant high-star
+comments. It is very praiseworthy to have highly rated sirloin, round and cube steaks</p>
+          <h4>For food other than steaks:</h4>
+          <p>1.Improve the quality of wines and beers</p>
+          <p>2.Cheese and salad are always focus points</p>
+          <p>3.Start serving desserts may help</p>
+          <p>Salad is important</p>
+          <h4>In the aspect of non-food items:</h4>
+          <p>1.Improve or set up your reservation system</p>
+          <p>2.Pay attention to the attire of your waiters/waitresses</p>
+          <p>3.Check if it’s possible to offer outdoor seating</p>
+          <p>4.Don’t provide food delivery service</p>
+          <p>5.Allocating too much spaces for groups specially is unnecessary</p>
+        </div>
+        <div class="tab-pane" data-value="About" id="tab-1425-5">
+          <p>This Shiny App is designed by:Peibin Rui</p>
+          <p>All questions and suggestions are welcome. Contact these maintainers:</p>
+          <p>Huitong Kou (hkou2@wisc.edu) </p>
+          <p>Peibin Rui (prui@wisc.edu)</p>
+          <p>Zihang Wang (zwang2547@wisc.edu)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div id="ss-connect-dialog" style="display: none;"><label>Attempting to reconnect...</label><label>&nbsp;</label></div><div id="ss-overlay" class="ss-gray-out" style="display: none;"></div></body></html>

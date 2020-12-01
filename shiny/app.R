@@ -8,33 +8,90 @@ library(dplyr)
 library(data.table)
 
 choice<-c('filet','ribeye','strip','sirloin','porterhouse','tomahawk','skirt','flank','hanger','round','cube')
+times<-c('breakfast','brunch','lunch','dinner')
+others<-c('bread','burger','cake','cheese','lobster','salad','salmon','sandwich','shrimp','sushi')
 ui = fluidPage(theme = shinytheme("yeti"),
   shinyUI(
   navbarPage("Steak House Review",
              
-    tabPanel("Reviews",
-             
-      titlePanel("Visualize the Yelp views about steak house."),
+    tabPanel("Reviews of differernt cuts of steak",
       
           sidebarLayout(
             sidebarPanel(
-              helpText("Please select the type of steak you serve at your restaurant to see the plot"),
+              helpText("Please select the cut of steak served at your restaurant to see the plot"),
               
               selectInput("type" ,"Type:",choices = choice),
-                        ),
+                       
+            
+              helpText("Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)", 
+                      "Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp."),
+              helpText("'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association"),
+            ),
             mainPanel(
-                h5("Here is the plot of review stars of your type of steak"),
+                h5("Here is the plot of review stars of certain cut of steak"),
                 plotOutput("Starsplot"),
                       )
                          )
               ),
+    tabPanel("Does time matter?",
+             
+    sidebarLayout(
+      sidebarPanel(
+        helpText("Please select the time of the day"),
+        
+        selectInput("time" ,"Time:",choices = times),
+        
+        
+        helpText("Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)", 
+                 "Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp."),
+        helpText("'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association"),
+      ),
+      mainPanel(
+        h5("Here is the plot of different time of the day"),
+        plotOutput("timeplot"),
+      )
+    )
+    ),
+    tabPanel("What about other food",
+
+             sidebarLayout(
+               sidebarPanel(
+                 helpText("Please select the type of other food"),
+                 
+                 selectInput("foods" ,"Type of food:",choices = others),
+                 
+                 
+                 helpText("Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)", 
+                          "Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp."),
+                 helpText("'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association"),
+               ),
+               
+             
+               mainPanel(
+                 h5("Here is the plot of how other food related to the reivews"),
+                 plotOutput("otherfoodplot"),
+               )
+             )
+    ),
+
                               
-                              tabPanel("Instruction",
+      tabPanel("Advice",
                                        h3("Advice on opening a new steak restaurant:"),
                                        h4("In the aspect of steaks:"),
                                        p("1.Focus on tomahawk, skirt, hanger and flank steaks at first and emphasize them on your menu"),
                                        p("2.Filet, ribeye, strip and porterhouse steaks are not bad to consider"),
                                        p("3.Make sirloin, round and cube steaks inconspicuous on your menu or avoid offering them"),
+                                       h4("For food other than steaks:"),
+                                       p("1.Set a more varied range of wines and beers offered at your restaurant"),
+                                       p("2.Make sure the egg and cheese served at your restaurant taste great"),
+                                       p("3.Consider hiring patissiers and serve desserts"),
+                                       p("4.Salad is important"),
                                        h4("In the aspect of non-food items:"),
                                        p("1.Set up a proper reservation system is important"),
                                        p("2.Offer well-designed attire to your waiters/waitresses"),
@@ -50,6 +107,11 @@ ui = fluidPage(theme = shinytheme("yeti"),
 many low-star comments since the customers are not so picky about them"),
                                        p("2.Advertise your sirloin, round and cube steaks if one of them has brought your restaurant high-star
 comments. It is very praiseworthy to have highly rated sirloin, round and cube steaks"),
+                                       h4("For food other than steaks:"),
+                                       p("1.Improve the quality of wines and beers"),
+                                       p("2.Cheese and salad are always focus points"),
+                                       p("3.Start serving desserts may help"),
+                                       p("Salad is important"),
                                        h4("In the aspect of non-food items:"),
                                        p("1.Improve or set up your reservation system"),
                                        p("2.Pay attention to the attire of your waiters/waitresses"),
@@ -74,6 +136,16 @@ server = function(input, output){
   output$Starsplot <- renderImage({
     filename <- normalizePath(file.path('plots/',
                                         paste(input$type, '.png', sep='')))
+    list(src = filename)
+  })
+  output$timeplot <- renderImage({
+    filename <- normalizePath(file.path('plots2/meal_time/',
+                                        paste(input$time, '.png', sep='')))
+    list(src = filename)
+  })
+  output$otherfoodplot <- renderImage({
+    filename <- normalizePath(file.path('plots2/side_order/',
+                                        paste(input$foods, '.png', sep='')))
     list(src = filename)
   })
 }
