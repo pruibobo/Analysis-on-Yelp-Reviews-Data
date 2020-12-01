@@ -48,6 +48,7 @@ data2=data %>%
   select(restaurant,stars)
 
 hist(data2$stars,main = 'Steak restaurant stars histgram',breaks=c(0:5),freq = F,xaxt = "n",xlab = 'Stars',ylab = 'Freq',ylim = c(0,0.6))
+barplot(table(data2$stars)/length(data2$stars),main = 'Steak restaurant stars histgram',xlab = 'Stars',ylab = 'Freq',cex.main=2,cex.names = 1.5,cex.axis = 1.5,cex.lab=1.5)
 
 ####conduct t-test
 p=c()
