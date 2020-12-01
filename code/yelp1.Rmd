@@ -239,7 +239,7 @@ In the aspect of non-food items:
 
 ## 5.Shiny App
 
-link
+Link: https://pruibobo.shinyapps.io/shiny/
 
 ## 6.Contribution
 
