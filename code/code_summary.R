@@ -3,7 +3,7 @@ library(corrplot)
 
 data=fread('../data/steak_cleaned.csv')
 
-# function for ploting star frequency in each word 
+# function for plotting star frequency in each word 
 plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
   par(mfrow = mfrow)
   col_DTM = colnames(DTM)
