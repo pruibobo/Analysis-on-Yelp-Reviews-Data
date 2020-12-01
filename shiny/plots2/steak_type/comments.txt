@@ -1,0 +1,22 @@
+cube: Reviews mention "cube" have both many high stars and low stars. Improving cube steaks may not be effecient for getting higher ratings.
+
+filet: Reviews mention "filet" tend to give high stars. It is a good idea to improve filet steaks to get higher ratings.
+
+flank: Reviews mention "flank" tend to give high stars. It is a good idea to improve flank steaks to get higher ratings.
+
+hanger: Reviews mention "hanger" tend to give high stars. It is a good idea to improve hanger steaks to get higher ratings.
+
+porterhouse: Reviews mention "porterhouse" tend to give high stars. It is a good idea to improve porterhouse steaks to get higher ratings.
+
+ribeye: Reviews mention "ribeye" tend to give high stars. It is a good idea to improve ribeye steaks to get higher ratings.
+
+round: Reviews mention "round" have both many high stars and low stars. Improving round steaks may not be effecient for getting higher ratings.
+
+sirloin: Reviews mention "sirloin" have both many high stars and low stars. Improving sirloin steaks may not be effecient for getting higher ratings.
+
+skirt: Reviews mention "skirt" tend to give high stars. It is a good idea to improve skirt steaks to get higher ratings.
+
+strip: Reviews mention "strip" tend to give high stars. It is a good idea to improve strip steaks to get higher ratings.
+
+tomahawk: Reviews mention "tomahawk" tend to give high stars. It is a good idea to improve tomahawk steaks to get higher ratings.
+

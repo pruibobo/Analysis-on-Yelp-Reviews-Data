@@ -1,0 +1,7 @@
+breakfast: Reviews mention "breakfast" tend to give high stars. It is a good idea to provide breakfast to get higher ratings.
+
+brunch: Reviews mention "brunch" tend to give high stars. It is a good idea to provide brunch to get higher ratings.
+
+dinner: Although reviews mention "dinner" have a large proportion of high stars, there are also many low stars. Improving dinners in steak restaurants may not be effecient for getting higher ratings.
+
+lunch: Although reviews mention "lunch" have a large proportion of high stars, there are also many low stars. Improving lunches in steak restaurants may not be effecient for getting higher ratings.

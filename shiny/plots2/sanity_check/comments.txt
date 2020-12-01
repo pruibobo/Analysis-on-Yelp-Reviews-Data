@@ -1,0 +1,17 @@
+average: Reviews mention the word "average" tend to give middle stars (2 ~ 4 stars). It works as expected.
+
+awful: Reviews mention the word "awful" tend to give low stars (1 ~ 2 stars). It works as expected.
+
+bad: Reviews mention the word "bad" tend to give low stars (1 stars). But there are also many reviews giving middle or high stars since people may say "not bad" in reviews.
+
+excellent: Reviews mention the word "excellent" tend to give high stars (4 ~ 5 stars). It works as expected.
+
+fantastic: Reviews mention the word "fantastic" tend to give high stars (4 ~ 5 stars). It works as expected.
+
+mediocre: Reviews mention the word "mediocre" tend to give middle and low stars (1 ~ 3 stars). It works as expected.
+
+ordinary: Reviews mention the word "ordinary" tend to give middle stars (2 ~ 4 stars). It works as expected.
+
+wonderful: Reviews mention the word "wonderful" tend to give high stars (4 ~ 5 stars). It works as expected.
+
+worst: Reviews mention the word "worst" tend to give low stars (1 ~ 2 stars). It works as expected.
