@@ -1,4 +1,5 @@
 library(data.table)
+library(corrplot)
 
 data=fread('../data/steak_cleaned.csv')
 
@@ -14,7 +15,7 @@ plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
       next}
     dtm_vec = DTM[,index]
     my_star=stars[which(dtm_vec>0)]
-    barplot(table(my_star)/length(my_star),main=wordList[i],xlab="Stars (1 -> 5)",ylab="Star Distribution")
+    barplot(table(my_star)/length(my_star),main=wordList[i],xlab="Stars (1 -> 5)",ylab="Star Frequency",cex.lab = 1.5,cex.main=2.5)
   }
   par(mfrow = c(1,1))
 }
@@ -29,11 +30,10 @@ plotWordStar(data$stars_x,data,mylist,c(3,3))
 
 ##############################################################################
 # Different Types of Steak
-steak_list=c('Filet','Ribeye','Strip','Sirloin',
-             'Porterhouse','Tomahawk','Skirt','Flank',
-             'hanger','round','cube')
+steak_list=c('Filet','Ribeye','Sirloin','Porterhouse',
+             'Tomahawk','hanger','round','cube')
 steak_list=tolower(steak_list)
-plotWordStar(data$stars_x,data,steak_list,c(3,4))
+plotWordStar(data$stars_x,data,steak_list,c(2,4))
 
 ##############################################################################
 # Different Types of other food
@@ -58,18 +58,30 @@ mylist2=c("time","back","dinner","night",
           "sunday","boyfriend","girlfriend","ambiance")
 plotWordStar(data$stars_x,data,mylist2)
 
-##############################################################################################################
-boxplot(data$stars_x[which(data$city=="Akron")],data$stars_x[which(data$city=="Champaign")],
-        data$stars_x[which(data$city=="Cleveland")],data$stars_x[which(data$city=="Madison")])
+mylist3=c("egg","sushi","lobster","salmon",
+          "lunch","dinner","brunch","breakfast",
+          "ambiance","wait","recommend","party")
+plotWordStar(data$stars_x,data,mylist3,c(3,4))
 
-summary(data$stars_x[which(data$city=="Akron")])
-summary(data$stars_x[which(data$city=="Champaign")])
-summary(data$stars_x[which(data$city=="Cleveland")])
-summary(data$stars_x[which(data$city=="Madison")])
+################################################################################
+# regression analysis
+dat=data[,c('filet','ribeye','sirloin','porterhouse',
+            'tomahawk','hanger','round','cube')]
+cor(dat)
+corrplot(cor(dat))
 
-# # word cloud plot
-# mytext=data$text
-# a=table(mytext)
-# 
-# wordcloud2(a,shape = "star")
 
+dat=data[,c("stars_x","egg","sushi","lobster","salmon",
+            "lunch","dinner","brunch","breakfast",
+            "ambiance","wait","recommend","party",
+            'filet','ribeye','sirloin','porterhouse',
+            'tomahawk','hanger','round','cube')]
+my_lm=lm(stars_x~.,dat)
+summary(my_lm)
+
+
+dat2=dat[,1]
+dat2$food=(dat$egg+dat$sushi+dat$lobster+dat$salmon)/4
+dat2$non_food=(dat$ambiance+dat$wait+dat$recommend+dat$recommend+dat$party)/5
+my_lm=lm(stars_x~.,dat2)
+summary(my_lm)
