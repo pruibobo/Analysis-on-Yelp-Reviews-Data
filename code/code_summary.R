@@ -95,7 +95,7 @@ dat=data[,c(1,my_index)]
 my_lm=lm(stars_x~.,dat)
 summary(my_lm)
 ci(my_lm)
-plot(my_lm)
+plot(my_lm,2)
 
 kappa(cor(dat))
 library(car)
