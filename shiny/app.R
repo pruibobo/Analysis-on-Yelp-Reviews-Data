@@ -32,6 +32,12 @@ ui = fluidPage(theme = shinytheme("yeti"),
             mainPanel(
                 h5("Here is the plot of review stars of certain cut of steak"),
                 plotOutput("Starsplot"),
+                br(),
+                br(),
+                br(),
+                br(),
+                br(),
+                textOutput("steaktext")
                       )
                          )
               ),
@@ -53,6 +59,12 @@ ui = fluidPage(theme = shinytheme("yeti"),
       mainPanel(
         h5("Here is the plot of different time of the day"),
         plotOutput("timeplot"),
+        br(),
+        br(),
+        br(),
+        br(),
+        br(),
+        textOutput("timetext")
       )
     )
     ),
@@ -76,6 +88,12 @@ ui = fluidPage(theme = shinytheme("yeti"),
                mainPanel(
                  h5("Here is the plot of how other food related to the reivews"),
                  plotOutput("otherfoodplot"),
+                 br(),
+                 br(),
+                 br(),
+                 br(),
+                 br(),
+                 textOutput("otherfoodtext")
                )
              )
     ),
@@ -134,19 +152,35 @@ comments. It is very praiseworthy to have highly rated sirloin, round and cube s
 )
 server = function(input, output){
   output$Starsplot <- renderImage({
-    filename <- normalizePath(file.path('plots/',
+    filename <- normalizePath(file.path('plots2/steak_type/',
                                         paste(input$type, '.png', sep='')))
     list(src = filename)
   })
+  output$steaktext <- renderText({
+    filename <- normalizePath(file.path('plots2/steak_type/',
+                                        paste(input$type, '.txt', sep='')))
+    print(scan(file=filename, what = character(0), sep = "\n"))
+  })
+
   output$timeplot <- renderImage({
     filename <- normalizePath(file.path('plots2/meal_time/',
                                         paste(input$time, '.png', sep='')))
     list(src = filename)
   })
+  output$timetext <- renderText({
+    filename <- normalizePath(file.path('plots2/meal_time/',
+                                        paste(input$time, '.txt', sep='')))
+    print(scan(file=filename, what = character(0), sep = "\n"))
+  })
   output$otherfoodplot <- renderImage({
     filename <- normalizePath(file.path('plots2/side_order/',
                                         paste(input$foods, '.png', sep='')))
     list(src = filename)
+  })
+  output$otherfoodtext <- renderText({
+    filename <- normalizePath(file.path('plots2/side_order/',
+                                        paste(input$foods, '.txt', sep='')))
+    print(scan(file=filename, what = character(0), sep = "\n"))
   })
 }
 
