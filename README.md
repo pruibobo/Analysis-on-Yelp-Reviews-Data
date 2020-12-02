@@ -8,15 +8,20 @@ Zihang Wang zwang2547@wisc.edu
 
 Peibin Rui prui@wisc.edu
 
+## Introduction
+There are tens of thousands of reviews for different types of businesses. Our analysis mainly focuses on restaurants which serve steak in several US cities such as Madison and Pittsburgh. Among these restaurants, our specific goals are:
+- Investigate the relationship between ratings and words in reviews from two different aspects: foods, non-food factors
+- Provide useful advice for improving the ratings of steak restaurants on Yelp based on our analysis
+
 ## Goal
 
-To provide
+To provide:
 
-- Data-driven actionable plan to help business owners improve their ratings on Yelp. 
-- Key useful, analytical insights from the data (e.g. plots, tables, models, inferential methods, etc.) .
-- A demonstration of your Shiny application.
+- Data-driven actionable plan to help business owners improve their ratings on Yelp
+- Key useful, analytical insights from the data (e.g. plots, tables, models, inferential methods, etc.)
+- A demonstration of your Shiny application
 
-Limited by the computing power, we chose to focus on restaurants whose category contained the word "steak".
+Limited by the computing power, we chose to focus on restaurants whose category contained the word "steak"
 
 ## Shiny App
 
@@ -24,17 +29,17 @@ https://pruibobo.shinyapps.io/shiny/
 
 ## Code Directions
 
-The `.Rmd` file is for knitting the summary file.
+The `.Rmd` file is for knitting the summary file
 
-The `yelp.ipynb`  is for data cleaning.
+The `yelp.ipynb`  is for data cleaning
 
-The `.R` file is for data analysis and plotting.
+The `.R` file is for data analysis and plotting
 
-All codes are stored in the `code` directory.
+All codes are stored in the `code` directory
 
-All the data are stored in the `data` directory.
+All the data are stored in the `data` directory
 
-All the plots and codes used to build shiny app are stored in the `shiny` directory.
+All the plots and codes used to build shiny app are stored in the `shiny` directory
 
 
 
