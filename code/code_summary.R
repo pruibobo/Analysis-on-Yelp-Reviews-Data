@@ -1,5 +1,5 @@
 library(data.table)
-library(corrplot)
+library(gmodels)
 
 data=fread('../data/steak_cleaned.csv')
 
@@ -15,7 +15,9 @@ plotWordStar <- function(stars,DTM,wordList,mfrow = c(4,4)) {
       next}
     dtm_vec = DTM[,index]
     my_star=stars[which(dtm_vec>0)]
-    barplot(table(my_star)/length(my_star),main=wordList[i],xlab="Stars (1 -> 5)",ylab="Star Frequency",cex.lab = 1.5,cex.main=2.5)
+    my_cor=cor(stars,dtm_vec)
+    my_cor=round(my_cor,4)
+    barplot(table(my_star)/length(my_star),main=paste0(wordList[i],"\n corr=",my_cor),xlab="Stars (1 -> 5)",ylab="Star Frequency",cex.lab = 1.5,cex.main=2)
   }
   par(mfrow = c(1,1))
 }
@@ -65,23 +67,36 @@ plotWordStar(data$stars_x,data,mylist3,c(3,4))
 
 ################################################################################
 # regression analysis
-dat=data[,c('filet','ribeye','sirloin','porterhouse',
-            'tomahawk','hanger','round','cube')]
-cor(dat)
-corrplot(cor(dat))
 
+# dat=data[,c("stars_x","good","place","great","service","time",
+#             "egg","sushi","lobster","salmon",
+#             "lunch","dinner","brunch","breakfast",
+#             "ambiance","wait","recommend","party",
+#             'filet','ribeye','sirloin','porterhouse',
+#             'tomahawk','hanger','round','cube')]
 
-dat=data[,c("stars_x","egg","sushi","lobster","salmon",
-            "lunch","dinner","brunch","breakfast",
-            "ambiance","wait","recommend","party",
-            'filet','ribeye','sirloin','porterhouse',
-            'tomahawk','hanger','round','cube')]
+words=fread("../data/word_freq.csv")
+words2=words[which(words$V2>4000),]
+words_names=words2$V1
+words_names=c(words_names,"egg","obster","salmon","lunch","brunch",
+              "breakfast","ambiance","recommend","party","filet",
+              "ribeye","sirloin","porterhouse","tomahawk","hanger","round","cube")
+
+my_index=c()
+for (i in 1:length(words_names)) {
+  col_DTM = colnames(data)
+  index = which(col_DTM == words_names[i])
+  my_index=c(my_index,index)
+}
+data=as.data.frame(data)
+dat=data[,c(1,my_index)]
+
+#my_lm=glm(stars_x~.,dat,family = binomial(link = "probit"))
 my_lm=lm(stars_x~.,dat)
 summary(my_lm)
+ci(my_lm)
+plot(my_lm)
 
-
-dat2=dat[,1]
-dat2$food=(dat$egg+dat$sushi+dat$lobster+dat$salmon)/4
-dat2$non_food=(dat$ambiance+dat$wait+dat$recommend+dat$recommend+dat$party)/5
-my_lm=lm(stars_x~.,dat2)
-summary(my_lm)
+kappa(cor(dat))
+library(car)
+vif(my_lm)
