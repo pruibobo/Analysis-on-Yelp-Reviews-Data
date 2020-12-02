@@ -5,9 +5,9 @@ account: pruibobo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3324853
-bundleId: 3930236
+bundleId: 3930299
 url: https://pruibobo.shinyapps.io/shiny/
-when: 1606867941.65295
+when: 1606869162.87381
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: generate_plots.R|Steak House Review.html|plots|Steak House Review_files
+ignoredFiles: generate_plots.R

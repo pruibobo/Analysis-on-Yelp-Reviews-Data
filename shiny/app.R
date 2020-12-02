@@ -10,6 +10,7 @@ library(data.table)
 choice<-c('filet','ribeye','strip','sirloin','porterhouse','tomahawk','skirt','flank','hanger','round','cube')
 times<-c('breakfast','brunch','lunch','dinner')
 others<-c('bread','burger','cake','cheese','lobster','salad','salmon','sandwich','shrimp','sushi')
+nonfood<-c('ambiance','parking','price','recommend','reservation','wait')
 ui = fluidPage(theme = shinytheme("yeti"),
   shinyUI(
   navbarPage("Steak House Review",
@@ -97,7 +98,35 @@ ui = fluidPage(theme = shinytheme("yeti"),
                )
              )
     ),
-
+    tabPanel("Non-food factors",
+             
+             sidebarLayout(
+               sidebarPanel(
+                 helpText("Please select the aspect"),
+                 
+                 selectInput("nonfood" ,"Non-food factors:",choices = nonfood),
+                 
+                 
+                 helpText("Reviews are from restaurants in Madison (U.S.), Cleveland (U.S.)", 
+                          "Pittsburgh (U.S.) and Urbana-Champaign (U.S.) released by Yelp."),
+                 helpText("'corr' is a mathematical measure of how two things associated with each other, 
+                        the value is between -1 and 1, -1 and 1 mean they have very strong association 
+                        and 0 means they have little association"),
+               ),
+               
+               
+               mainPanel(
+                 h5("Here is the plot of how non-food factors related to the reivews"),
+                 plotOutput("nonfoodplot"),
+                 br(),
+                 br(),
+                 br(),
+                 br(),
+                 br(),
+                 textOutput("nonfoodtext")
+               )
+             )
+    ),
                               
       tabPanel("Advice",
                                        h3("Advice on opening a new steak restaurant:"),
@@ -110,7 +139,7 @@ ui = fluidPage(theme = shinytheme("yeti"),
                                        p("2.Make sure the egg and cheese served at your restaurant taste great"),
                                        p("3.Consider hiring patissiers and serve desserts"),
                                        p("4.Salad is important"),
-                                       h4("In the aspect of non-food items:"),
+                                       h4("In the aspect of non-food factors:"),
                                        p("1.Set up a proper reservation system is important"),
                                        p("2.Offer well-designed attire to your waiters/waitresses"),
                                        p("3.Look for possible locations with outdoor seating"),
@@ -130,7 +159,7 @@ comments. It is very praiseworthy to have highly rated sirloin, round and cube s
                                        p("2.Cheese and salad are always focus points"),
                                        p("3.Start serving desserts may help"),
                                        p("Salad is important"),
-                                       h4("In the aspect of non-food items:"),
+                                       h4("In the aspect of non-food factors:"),
                                        p("1.Improve or set up your reservation system"),
                                        p("2.Pay attention to the attire of your waiters/waitresses"),
                                        p("3.Check if it’s possible to offer outdoor seating"),
@@ -182,6 +211,15 @@ server = function(input, output){
                                         paste(input$foods, '.txt', sep='')))
     print(scan(file=filename, what = character(0), sep = "\n"))
   })
+  output$nonfoodplot <- renderImage({
+  filename <- normalizePath(file.path('plots2/non_food/',
+                                      paste(input$nonfood, '.png', sep='')))
+  list(src = filename)
+  })
+  output$nonfoodtext <- renderText({
+  filename <- normalizePath(file.path('plots2/non_food/',
+                                      paste(input$nonfood, '.txt', sep='')))
+  print(scan(file=filename, what = character(0), sep = "\n"))
+  })
 }
-
 shinyApp(ui = ui, server = server)
