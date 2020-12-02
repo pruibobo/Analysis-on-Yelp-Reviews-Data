@@ -1,0 +1,21 @@
+ambiance: Reviews mention "ambiance" tend to give more high stars. Improving ambiance in steak restaurants is an effecient way to get higher ratings.
+
+atmosphere: Reviews mention "atmosphere" tend to give more high stars. Improving atmosphere in steak restaurants is an effecient way to get higher ratings.
+
+back: Reviews mention the word "back" have both many high stars and low stars since people may say "will come back" or "will not come back" in reviews.
+
+friendly: Reviews mention "friendly" tend to give more high stars. Providing more frendly service in steak restaurants is an effecient way to get higher ratings.
+
+parking: Reviews mention "parking" tend to give more high stars. Providing more parking spots in steak restaurants is an effecient way to get higher ratings.
+
+party: Although reviews mention "party" have both a large proportion of high stars and low stars. Holding parties in steak restaurants may not be a good choice to get higher ratings.
+
+price: Reviews mention "price" tend to give more high stars. Providing competitive price in steak restaurants is an effecient way to get higher ratings.
+
+recommend: Reviews mention "recommend" tend to give more high stars. Encouraging customers to recommend the steak restaurants to their friends and relatives is an effecient way to get higher ratings.
+
+reservation: Although reviews mention "reservation" have a large proportion of high stars, there are also many low stars. So steak restaurants should improve their reservation system to get higher ratings.
+
+wait: Reviews mention "wait" have both many high stars and low stars. So clearly custermers of steak restaurants do not want to wait for seats for a long time.
+
+

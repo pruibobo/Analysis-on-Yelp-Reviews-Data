@@ -1,0 +1,29 @@
+beer: Although reviews mention "beer" have a large proportion of high stars, there are also many low stars. Improving beers served in steak restaurants may not be effecient for getting higher ratings.
+
+bread: Although reviews mention "bread" have a large proportion of high stars, there are also many low stars. Improving breads served in steak restaurants may not be effecient for getting higher ratings.
+
+burger: Although reviews mention "burger" have a large proportion of high stars, there are also many low stars. Improving burgers served in steak restaurants may not be effecient for getting higher ratings.
+
+cake: Reviews mention "cake" tend to give high stars. It is a good idea to improve cakes to get higher ratings.
+
+cheese: Reviews mention "cheese" tend to give high stars. It is a good idea to improve cheeses to get higher ratings.
+
+dessert: Reviews mention "dessert" tend to give high stars. It is a good idea to improve desserts to get higher ratings.
+
+egg: Reviews mention "egg" tend to give high stars. It is a good idea to improve eggs to get higher ratings.
+
+lobster: Reviews mention "lobster" tend to give high stars. It is a good idea to improve lobsters to get higher ratings.
+
+potato: Although reviews mention "potato" have a large proportion of high stars, there are also many low stars. Improving potatoes served in steak restaurants may not be effecient for getting higher ratings.
+
+salad: Although reviews mention "salad" have a large proportion of high stars, there are also many low stars. Improving salads served in steak restaurants may not be effecient for getting higher ratings.
+
+salmon: Reviews mention "salmon" tend to give high stars. It is a good idea to improve salmons to get higher ratings.
+
+sandwich: Although reviews mention "sandwich" have a large proportion of high stars, there are also many low stars. Improving sandwiches served in steak restaurants may not be effecient for getting higher ratings.
+
+shrimp: Although reviews mention "shrimp" have a large proportion of high stars, there are also many low stars. Improving shrimps served in steak restaurants may not be effecient for getting higher ratings.
+
+sushi: Although reviews mention "sushi" have a large proportion of high stars, there are also many low stars. Improving sushi served in steak restaurants may not be effecient for getting higher ratings.
+
+
