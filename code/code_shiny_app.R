@@ -1,4 +1,4 @@
-# Shiny App
+# Codes for Shiny App
 
 library(shiny)
 library(ggplot2)

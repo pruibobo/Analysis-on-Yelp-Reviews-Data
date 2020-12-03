@@ -1,4 +1,4 @@
-#code for creating dateset for t-test
+#codes for cleaning business attributes and performing t-test
 
 library(rjson)
 path <- "../data/business_city.json"

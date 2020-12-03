@@ -1,5 +1,8 @@
+# Codes for statistical analysis in summary
+
 library(data.table)
 library(gmodels)
+library(car)
 
 data=fread('../data/steak_cleaned.csv')
 
@@ -98,5 +101,5 @@ ci(my_lm)
 plot(my_lm,2)
 
 kappa(cor(dat))
-library(car)
+
 vif(my_lm)

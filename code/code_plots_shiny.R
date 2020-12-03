@@ -1,9 +1,11 @@
+# This is the code for generating plots for Shiny app
+
 library(data.table)
 library(corrplot)
 
 data=fread('../data/steak_cleaned.csv')
 
-# function for plotting star frequency in each word 
+# function for plotting star frequency and correlation for each word 
 plotWordStar <- function(stars,DTM,wordList) {
   col_DTM = colnames(DTM)
   DTM=as.data.frame(DTM)

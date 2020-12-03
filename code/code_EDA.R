@@ -90,13 +90,15 @@ mylist2=c("time","back","dinner","night",
 plotWordStar(data$stars_x,data,mylist2)
 
 ##############################################################################################################
-boxplot(data$stars_x[which(data$city=="Akron")],data$stars_x[which(data$city=="Champaign")],
-        data$stars_x[which(data$city=="Cleveland")],data$stars_x[which(data$city=="Madison")])
+# box plots
 
-summary(data$stars_x[which(data$city=="Akron")])
-summary(data$stars_x[which(data$city=="Champaign")])
-summary(data$stars_x[which(data$city=="Cleveland")])
-summary(data$stars_x[which(data$city=="Madison")])
+# boxplot(data$stars_x[which(data$city=="Akron")],data$stars_x[which(data$city=="Champaign")],
+#         data$stars_x[which(data$city=="Cleveland")],data$stars_x[which(data$city=="Madison")])
+# 
+# summary(data$stars_x[which(data$city=="Akron")])
+# summary(data$stars_x[which(data$city=="Champaign")])
+# summary(data$stars_x[which(data$city=="Cleveland")])
+# summary(data$stars_x[which(data$city=="Madison")])
 
 # # word cloud plot
 # mytext=data$text
