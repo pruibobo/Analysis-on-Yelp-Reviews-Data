@@ -1,4 +1,4 @@
-# STAT 628 Module3: Analysis on Yelp Reviews Data
+#Analysis on Yelp Reviews Data
 
 ## Authors 
 
